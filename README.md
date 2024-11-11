@@ -1,7 +1,4 @@
 # 2a_Stop_and_Wait_Protocol
-
-### Name: Karthikeyan R
-### Reg.NO: 212222240046
 ## AIM 
 To write a python program to perform stop and wait protocol
 ## ALGORITHM
@@ -12,39 +9,40 @@ To write a python program to perform stop and wait protocol
 5. If your frames reach the server it will send ACK signal to client
 6. Stop the Program
 ## PROGRAM
-### CLIENT
-```
-import socket
-s=socket.socket()
-s.bind(('localhost',8000))
-s.listen(5)
-c,addr=s.accept()
-while True:
- i=input("Enter a data: ")
- c.send(i.encode())
- ack=c.recv(1024).decode()
- if ack:
-   print(ack)
-   continue
- else:
-   c.close()
-   break
-```
-### SERVER
-```
-import socket
-s=socket.socket()
-s.connect(('localhost',8000))
-while True:
- print(s.recv(1024).decode())
- s.send("Acknowledgement Recived".encode())
-```
-## OUTPUT
-### CLIENT
-![image](https://github.com/Afsarjumail/2a_Stop_and_Wait_Protocol/assets/118343395/5e7536db-fd1a-4b3f-9358-211a771e8100)
 
-### SERVER
-![image](https://github.com/Afsarjumail/2a_Stop_and_Wait_Protocol/assets/118343395/08351b08-bc67-42a0-975a-88d1f145a355)
+## client.py
+~~~
+import socket 
+s=socket.socket() 
+s.bind(('localhost',8000))
+s.listen(5) 
+c,addr=s.accept() 
+while True: 
+    i=input("Enter a data: ") 
+    c.send(i.encode()) 
+    ack=c.recv(1024).decode() 
+    if ack: 
+        print(ack) 
+        continue 
+    else: 
+        c.close() 
+        break
+~~~
+
+## server.py
+~~~
+import socket 
+s=socket.socket() 
+s.connect(('localhost',8000)) 
+while True: 
+    print(s.recv(1024).decode()) 
+    s.send("Acknowledgement Recived".encode())
+~~~
+
+
+## OUTPUT 
+
+![CN ex 2a](https://github.com/user-attachments/assets/33def1d8-0992-4b65-b6f6-899453ba5bcc)
 
 ## RESULT
 Thus, python program to perform stop and wait protocol was successfully executed.
